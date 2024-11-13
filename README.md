@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VectorChat AI Platform
 
-## Getting Started
+An intelligent chatbot platform that uses DataStax Astra DB for vector storage and OpenAI for embeddings and chat completions.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 🧠 Vector-based knowledge base using DataStax Astra DB
+- 🤖 OpenAI-powered chat completions
+- ⚡ Real-time chat interface
+- 📚 Knowledge base management
+- 🎯 Semantic search for relevant context
+- 💫 Modern UI with animations
+
+## Tech Stack
+
+- **Framework**: Next.js 14 with App Router
+- **Database**: DataStax Astra DB (Vector Database)
+- **AI**: OpenAI API (Embeddings & Chat)
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Animation**: Framer Motion
+- **State Management**: TanStack Query
+
+## Prerequisites
+
+- Node.js 18+ and npm
+- DataStax Astra DB Account
+- OpenAI API Key
+
+## Setup Instructions
+
+1. **Clone the repository**
+
+   ```bash
+   git clone git remote add origin https://github.com/aryan877/vectorchat.git
+   cd vectorchat
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**
+
+   Create a `.env.local` file in the root directory:
+
+   ```env
+   OPENAI_API_KEY=your_openai_api_key
+   ASTRA_DB_APPLICATION_TOKEN=your_astra_token
+   ASTRA_DB_API_ENDPOINT=your_astra_endpoint
+   ```
+
+4. **DataStax Astra DB Setup**
+
+   - Create an account at [astra.datastax.com](https://astra.datastax.com)
+   - Create a new Vector Database
+   - Get your API endpoint and application token
+   - Add them to your `.env.local` file
+
+5. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+## Usage
+
+1. **Adding Knowledge**
+
+   - Use the Knowledge Base section to add content
+   - Content is automatically converted to embeddings and stored
+   - Each piece of content becomes searchable context
+
+2. **Chatting**
+   - Ask questions in the chat interface
+   - The system finds relevant context from your knowledge base
+   - Responses are generated using the found context
+
+## Project Structure
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+├── app/
+│   ├── api/           # API routes
+│   ├── layout.tsx     # Root layout
+│   └── page.tsx       # Main page
+├── components/
+│   ├── chat/         # Chat components
+│   ├── embed/        # Knowledge base components
+│   ├── nav/          # Navigation components
+│   └── ui/           # UI components
+├── utils/
+│   └── vectorstore.ts # Vector database utilities
+└── public/           # Static assets
+```
